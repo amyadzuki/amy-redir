@@ -1,4 +1,4 @@
 [metadata.heroku]
   root-package = "github.com/amyadzuki/amyredir"
-  install = [ "./cmd/..." ]
+  install = [ "./amyredir" ]
   ensure = "false"

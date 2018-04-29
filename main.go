@@ -50,8 +50,8 @@ func Obfuscation (w http.ResponseWriter, r *http.Request) {
 
 func PokemonBig (w http.ResponseWriter, r *http.Request) {
     num := r.URL.Path [len ("/pkmn/"):]
-    idx := strconv.ParseInt (num, 0, 64)
-    if idx < 0 || idx > 251 {
+    idx, err := strconv.ParseInt (num, 0, 64)
+    if err != nil || idx < 0 || idx > 251 {
         fmt.Fprintf (w, "404")
         return
     }
@@ -61,8 +61,8 @@ func PokemonBig (w http.ResponseWriter, r *http.Request) {
 
 func PokemonSmol (w http.ResponseWriter, r *http.Request) {
     num := r.URL.Path [len ("/pkmn/smol/"):]
-    idx := strconv.ParseInt (num, 0, 64)
-    if idx < 0 || idx > 251 {
+    idx, err := strconv.ParseInt (num, 0, 64)
+    if err != nil || idx < 0 || idx > 251 {
         fmt.Fprintf (w, "404")
         return
     }

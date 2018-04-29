@@ -87,6 +87,7 @@ func PkmnSmolURL (idx int64) string {
     url += "/dex/normal/"
     url += s.Name
     url += ".png"
+    return url
 }
 
 var Pkmn = []string {

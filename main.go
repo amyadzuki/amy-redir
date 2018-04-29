@@ -55,6 +55,7 @@ func PokemonBig (w http.ResponseWriter, r *http.Request) {
         fmt.Fprintf (w, "404")
         return
     }
+    sta := http.StatusMovedPermanently
     var url string
     if idx < int64 (len (Pkmn)) && len (Pkmn [idx]) > 0 {
         url  = "https://cdn.bulbagarden.net/upload/"
@@ -62,8 +63,9 @@ func PokemonBig (w http.ResponseWriter, r *http.Request) {
         url += ".png"
     } else {
         url = PkmnSmolURL (idx)
+        sta = 302
     }
-    http.Redirect (w, r, url, http.StatusMovedPermanently)
+    http.Redirect (w, r, url, sta)
 }
 
 func PokemonSmol (w http.ResponseWriter, r *http.Request) {

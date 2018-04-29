@@ -1,2 +1,2 @@
-# amy-redir
+# amyredir
 Simple redirection service

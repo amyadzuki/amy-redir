@@ -1,0 +1,11 @@
+{
+  "name": "amyredir",
+  "description": "Simple redirection service",
+  "keywords": [
+    "go",
+    "sample",
+    "example"
+  ],
+  "website": "https://github.com/amyadzuki/amyredir",
+  "repository": "https://github.com/amyadzuki/amyredir"
+}

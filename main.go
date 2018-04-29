@@ -71,9 +71,9 @@ func PokemonSmol (w http.ResponseWriter, r *http.Request) {
 }
 
 const Pkmn = []string {
-    "https://duckduckgo.com/assets/logo_icon128.v101.png" // test image
+    "https://duckduckgo.com/assets/logo_icon128.v101.png", // test image
 }
 
 const PkmnSmol = []string {
-    "https://duckduckgo.com/assets/logo_icon128.v101.png" // test image
+    "https://duckduckgo.com/assets/logo_icon128.v101.png", // test image
 }

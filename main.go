@@ -87,7 +87,7 @@ type PkmnSmolType struct {
     Name string
 }
 
-var PkmnSmol = []string {
+var PkmnSmol = []PkmnSmolType {
         { 0, ""                    },
         { 0, "bulbasaur"           },
         { 0, "ivysaur"             },

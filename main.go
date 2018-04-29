@@ -20,7 +20,7 @@ func main () {
     } else {
         port = strconv.FormatInt (int64 (p), 10)
     }
-    http.HandleFunc ("/hello/", hello)
+    http.HandleFunc ("/", hello)
     fmt.Println ("Listening...")
     err := http.ListenAndServe (":" + port, nil)
     if err != nil {

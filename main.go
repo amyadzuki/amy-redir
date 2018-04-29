@@ -70,10 +70,10 @@ func PokemonSmol (w http.ResponseWriter, r *http.Request) {
     http.Redirect (w, r, url, http.StatusMovedPermanently)
 }
 
-const Pkmn = []string {
+var Pkmn = []string {
     "https://duckduckgo.com/assets/logo_icon128.v101.png", // test image
 }
 
-const PkmnSmol = []string {
+var PkmnSmol = []string {
     "https://duckduckgo.com/assets/logo_icon128.v101.png", // test image
 }

@@ -51,21 +51,33 @@ func Obfuscation (w http.ResponseWriter, r *http.Request) {
 func PokemonBig (w http.ResponseWriter, r *http.Request) {
     num := r.URL.Path [len ("/pkmn/"):]
     idx, err := strconv.ParseInt (num, 0, 64)
-    if err != nil || idx < 0 || idx >= int64 (len (Pkmn)) {
+    if err != nil || idx < 1 || idx >= int64 (len (PkmnSmol)) {
         fmt.Fprintf (w, "404")
         return
     }
-    url := Pkmn [idx]
+    var url string
+    if idx < int64 (len (Pkmn)) && len (Pkmn [idx]) > 0 {
+        url  = "https://cdn.bulbagarden.net/upload/"
+        url += Pkmn [idx]
+        url += ".png"
+    } else {
+        url = PkmnSmolURL (idx)
+    }
     http.Redirect (w, r, url, http.StatusMovedPermanently)
 }
 
 func PokemonSmol (w http.ResponseWriter, r *http.Request) {
     num := r.URL.Path [len ("/pkmn/smol/"):]
     idx, err := strconv.ParseInt (num, 0, 64)
-    if err != nil || idx < 0 || idx >= int64 (len (PkmnSmol)) {
+    if err != nil || idx < 1 || idx >= int64 (len (PkmnSmol)) {
         fmt.Fprintf (w, "404")
         return
     }
+    url := PkmnSmolURL (idx)
+    http.Redirect (w, r, url, http.StatusMovedPermanently)
+}
+
+func PkmnSmolURL (idx int64) string {
     s   := PkmnSmol [idx]
     url := "https://img.pokemondb.net/sprites/"
     switch s.Algo {
@@ -75,11 +87,11 @@ func PokemonSmol (w http.ResponseWriter, r *http.Request) {
     url += "/dex/normal/"
     url += s.Name
     url += ".png"
-    http.Redirect (w, r, url, http.StatusMovedPermanently)
 }
 
 var Pkmn = []string {
-    "https://duckduckgo.com/assets/logo_icon128.v101.png", // test image
+    "",
+    "2/21/001Bulbasaur",
 }
 
 type PkmnSmolType struct {
